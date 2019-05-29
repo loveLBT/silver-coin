@@ -1,0 +1,50 @@
+.settlement-item {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 100px;
+	padding: 0 15px;
+	border-bottom: 1px solid #dcdcdc;
+	background-color: #fff;
+}
+.settlement-item .money-item-info {
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+}
+.settlement-item .money-item-info-img img{
+	width: 50px;
+	height: 50px;
+}
+.settlement-item .money-item-info-desc {
+	display: flex;
+	flex-direction: row;
+	flex: 1;
+	margin-left: 10px;
+	align-items: center;
+}
+.settlement-item .money-item-info-desc-price {
+	font-size: 20px;
+	font-weight: 500;
+	color: #333;
+}
+.settlement-item .money-item-info-desc-util {
+	font-size: 14px;
+	color: #999;
+	margin-left: 5px;
+}
+.settlement-item .money-item-input {
+	position: relative;
+	align-self: stretch;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: center;
+	overflow: hidden;
+}
+.settlement-item .money-item-count {
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	color: #333;
+}

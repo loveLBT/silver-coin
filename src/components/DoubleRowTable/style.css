@@ -1,0 +1,26 @@
+.double-table-row {
+	display: flex;
+	flex-direction: column;
+	border-width: 1px 1px 0px 1px;
+	border-color: #dcdcdc;
+	border-style: solid;
+}
+.double-table-row .row {
+	display: flex;
+	flex-direction: row;
+}
+.double-table-row .row span {
+	flex: 1;
+	padding: 10px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #dcdcdc;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: #dcdcdc;
+}
+.double-table-row .row span:first-child{
+	flex: none;
+	border-left: none;
+	text-align: center;
+}

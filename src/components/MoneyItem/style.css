@@ -1,0 +1,50 @@
+.money-item {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 100px;
+	padding: 0 15px;
+	border-bottom: 1px solid #dcdcdc;
+	background-color: #fff;
+}
+.money-item .money-item-info {
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+}
+.money-item .money-item-info-img img{
+	width: 50px;
+	height: 50px;
+}
+.money-item .money-item-info-desc {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	justify-content: space-around;
+	margin-left: 10px;
+}
+.money-item .money-item-info-desc-price {
+	font-size: 20px;
+	font-weight: 500;
+	color: #333;
+}
+.money-item .money-item-info-desc-util {
+	font-size: 14px;
+	color: #999;
+}
+.money-item .money-item-input {
+	position: relative;
+	flex: 1;
+	align-self: stretch;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: center;
+	overflow: hidden;
+}
+.money-item .money-item-count {
+	position: absolute;
+	bottom: 10px;
+	right: 0;
+	color: #333;
+}

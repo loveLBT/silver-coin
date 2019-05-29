@@ -1,0 +1,29 @@
+.as-input {
+	display: flex;
+	flex-direction: row;
+}
+.as-input .as {
+	width: 25px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #ffb901;
+	background-color: #fff;
+	color: #ffb901;
+	font-weight: 300;
+}
+.as-input .input {
+	margin: 0;
+	border: 1px solid #dcdcdc;
+	margin: 0 10px;
+	background-color: #fff;
+	width: 60px;
+	text-align: center;
+	color: #6a94ff;
+	border-radius: 0;
+}
+.as-input .as-disabled {
+	border-color: #ccc;
+	color: #ccc;
+}

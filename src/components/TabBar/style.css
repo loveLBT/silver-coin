@@ -1,0 +1,42 @@
+.tab-bar {
+	position: fixed;
+	width: 100%;
+	height: 50px;
+	left: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: row;
+	border-top: 1px solid #ddd;
+	background-color: #fff;
+}
+.tab-bar .tab {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.tab-bar .tab .dot {
+	position: absolute;
+	right: 50%;
+	top: 0;
+	transform: translateX(12px);
+	background-color: red;
+	width: 10px;
+	height: 10px;
+	display: block;
+	border-radius: 5px;
+
+}
+.tab-bar .tab img {
+	width: 21px;
+	height: 21px;
+}
+.tab-bar .tab p {
+	color: #999;
+	margin-top: 2px;
+}
+.tab-bar .active p {
+	color: #ffb901;
+}

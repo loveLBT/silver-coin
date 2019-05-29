@@ -1,0 +1,46 @@
+.dispensing-info {
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+}
+.dispensing-info .row {
+	display: flex;
+	border-bottom: 1px solid #f2f2f2;
+	padding: 10px 15px;
+	flex-direction: row;
+	align-items: center;
+}
+.dispensing-info .row img {
+	width: 40px;
+	height: 40px;
+}
+.dispensing-info .row .money-num {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-left: 10px;
+}
+.dispensing-info .row .money-num input {
+	display: inline-block;
+	width: 70px;
+	color: #6a94ff;
+	text-align: center;
+	margin-right: 5px;
+}
+.dispensing-info .row .money-num span:nth-child(2) {
+	display: inline-block;
+	width: 60px;
+	color: #999;
+	text-align: center;
+}
+.dispensing-info .row .money-count {
+	margin-left: 30px;
+	align-self: flex-end;
+}
+.dispensing-info .count {
+	padding: 15px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+}

@@ -1,0 +1,25 @@
+.loading-view {
+	text-align: center;
+	padding: 20px;
+}
+.loading-view .refreshing-text {
+	font-size: 12px;
+	color: #999;
+	padding-left: 10px;
+}
+.loading-view .footer-text {
+	font-size: 12px;
+	color: #999;
+}
+.loading-view img {
+	height: 90px;
+}
+.loading-view p {
+	color: #888;
+}
+.loading-view span {
+	vertical-align: middle;
+}
+.loading-view svg{
+	vertical-align: middle;
+}

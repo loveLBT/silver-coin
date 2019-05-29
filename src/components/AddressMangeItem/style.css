@@ -1,0 +1,70 @@
+.address-mange-item {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 80px;
+	padding: 0 15px;
+	background-color: #fff;
+	border-bottom: 1px solid #dcdcdc;
+	background-color: #fff;
+	align-items: center;
+	overflow: hidden;
+}
+.address-default:after{
+	content:"默认";
+	display: block;
+	position: absolute;
+	color: #fff;
+	font-size: 12px;
+	background-color: #ffb901;
+	display: flex;
+	justify-content: center;
+	bottom: -20px;
+	right: -20px;
+	width: 40px;
+	height: 40px;
+	transform:rotate(-45deg)
+}
+.address-mange-item .avatar {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 46px;
+	height: 46px;
+	border-radius: 23px;
+	background-color: #999;
+	margin-right: 10px;
+	box-sizing: content-box;
+	overflow: hidden;
+}
+.address-mange-item img{
+	
+}
+.address-mange-item .avatar span { 
+	font-size: 16px;
+	color: #fff;
+	font-weight: 300;
+ }
+.address-mange-item .info {
+	align-self: stretch;
+	flex: 1;
+ 	display: flex;
+ 	flex-direction: column;
+ 	font-size: 14px;
+ 	padding: 12px 0;
+ 	justify-content: space-between;
+ }
+ .address-mange-item .info p{
+ 	font-size: 14px;
+ 	color: #999;
+ }
+ .address-mange-item .btn {
+ 	font-size: 16px;
+ 	color: #999;
+ 	width: 43px;
+ 	text-align: right;
+ 	margin-left: 10px;
+ 	border-left: 1px solid #dcdcdc;
+ }

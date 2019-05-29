@@ -1,0 +1,19 @@
+.flow-item {
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+	background-color: #fff;
+	border-bottom-width: 2px;
+	border-bottom-color: #f2f2f2;
+	border-bottom-style: solid; 
+}
+.flow-item p {
+	font-size: 14px;
+	color: #999;
+	margin-top: 8px;
+}
+.flow-item p:first-child {
+	font-size: 16px;
+	color: #333;
+	margin-top: 0;
+}

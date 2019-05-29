@@ -1,0 +1,34 @@
+.hoc-header {
+	height: 46px;
+	background-color: #ffb901;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0 10px;
+	flex-shrink: 0;
+}
+.hoc-header .left {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex: 1;
+}
+.hoc-header .left img {
+	height: 16px;
+	width: auto;
+
+}
+.hoc-header .center {
+	flex: 1;
+	text-align: center;
+}
+.hoc-header .center span{
+	color: #fff;
+	font-size: 16px;
+}
+.hoc-header .right {
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
