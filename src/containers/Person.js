@@ -17,7 +17,7 @@ export default class Person extends Component {
 			<div className="person">
 				<div className="logo">
 					<img src="/images/img_icon.png" alt="logo"/>
-					<p>{userInfo.organization.organizationName}</p>
+					<p>{userInfo.organization && userInfo.organization.organizationName}</p>
 				</div>
 				<div className="menu-list">
 					<List>

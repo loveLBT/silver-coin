@@ -47,7 +47,7 @@ export default class AntiFalse extends Component {
 		        	{images.map((img,index) => 
 		        		<img 
 							key={index}
-							src={img}
+							src={`https://xn--uir4ul0kqufkqaj2d966dg6h5iw.com:8088/${img}`}
 							alt={`反假知识图片${index}`}
 							style={{width:"100%",height:imgHeight}}
 							onLoad={() => {

@@ -1,5 +1,5 @@
 import React,{ Component } from 'react'
-import { inject } from 'mobx-react'
+import { inject, observer } from 'mobx-react'
 
 import HOCHeader from '../HOC/HOCHeader'
 import OrderItem from '../components/OrderItem'
@@ -10,6 +10,7 @@ import ListViewBar from '../components/ListViewBar'
 @HOCHeader({
 	title:'兑换机查询'
 })
+@observer
 export default class CashChanger extends Component {
 	onSubmit = (val) => {
 		const { wxstore } = this.props
@@ -49,7 +50,7 @@ export default class CashChanger extends Component {
 					/>
 					<div className="address">
 						<img src="/images/point-gray.png" alt="地址图标"/>
-						<span>{userInfo.addressComponents.city}</span>
+						<span>{userInfo.addressComponents && userInfo.addressComponents.city}</span>
 					</div>
 				</div>
 				{(userInfo.lat && userInfo.lng) && 
@@ -82,13 +83,3 @@ export default class CashChanger extends Component {
 		)
 	}
 }
-
-{/*<div className="header">
-					<SearchBar 
-
-					/>
-					<div className="address">
-						<img src="/images/point-gray.png" alt="地址图标"/>
-						<span>呼和浩特</span>
-					</div>
-				</div>*/}

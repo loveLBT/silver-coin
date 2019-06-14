@@ -1,7 +1,7 @@
 import React,{ Component } from 'react'
 import { Tabs, Toast } from 'antd-mobile'
 import axios from 'axios'
-import { inject } from 'mobx-react'
+import { inject, observer } from 'mobx-react'
 
 import HOCHeader from '../HOC/HOCHeader'
 import ListViewBar from '../components/ListViewBar'
@@ -21,6 +21,7 @@ const tabs = [
 	title:"订单管理",
 	right:(ref) => <span style={{color:"#fff"}} onClick={ref.onHeaderRightClick.bind(this)}>预约兑换</span>
 })
+@observer
 export default class OrderMange extends Component {
 	constructor(props) {
 	 	super(props)
@@ -53,6 +54,7 @@ export default class OrderMange extends Component {
 	render() {
 		const { tabIndexs } = this.state
 		const { wxstore, history } = this.props
+		const { userInfo } = wxstore
 		const wrapperStyle = {
 			flex:1,
 			display:"flex",
@@ -66,7 +68,7 @@ export default class OrderMange extends Component {
 				    onChange={this.onChangeTab.bind(this)}
 			    >
 			      	<div style={wrapperStyle}>
-			        	{tabIndexs.indexOf(0) !== -1 && 
+			        	{(userInfo.id && tabIndexs.indexOf(0) !== -1) && 
 			    			<ListViewBar 
 								getUrl="/order/page"
 								params={{

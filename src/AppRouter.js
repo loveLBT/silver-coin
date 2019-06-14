@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
+import { inject, observer } from 'mobx-react'
+import axios from 'axios'
+import qs from 'qs'
+
+import { GetUrlParams } from './util/common'
 
 import TabNav from './containers/TabNav'
 import Home from './containers/Home'
@@ -27,12 +32,34 @@ import OrderDetail from './containers/OrderDetail'
 import Evaluate from './containers/Evaluate'
 import ReadPhoneAuth from './containers/ReadPhoneAuth'
 
-export default class AppRouter extends Component {
+@inject("wxstore")
+@observer
+class AppRouter extends Component {
+	componentDidMount () {
+		this.initData()
+		this.readWXJSSDK()	
+	}
+	initData = async () => {
+		const postData = {url: window.location.href.split('#')[0]}
+		const { wxstore } = this.props
+		const res = await axios.post('/weixin/sign',qs.stringify(postData))
+		if(res.ErrorCode === '000000') {
+			wxstore.WXConfig(res.data, ['getLocation'])	
+			
+		}
+	}
+	readWXJSSDK = () => {
+		const { wxstore } = this.props
+		window.wx.ready(function() {
+			wxstore.getWXLocation()
+		})
+	}
 	render(){
 		return (
-			<Router basename="/sc">
+			<Router>
 				<Switch>
-					<Route exact path='/' component={TabNav} />
+					<Redirect exact from='/' to={GetUrlParams("state") ? `/${GetUrlParams("state")}` : '/home'} />
+					<Route exact path='/home' component={TabNav} />
 					<Route exact path='/cashChanger' component={CashChanger} />
 					<Route exact path='/cashChanger/:id' component={CashChangerDetail} />
 					<Route exact path='/antifalse' component={AntiFalse} />
@@ -60,3 +87,5 @@ export default class AppRouter extends Component {
 		)
 	}
 }
+
+export default AppRouter

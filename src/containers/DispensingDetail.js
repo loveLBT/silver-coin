@@ -94,11 +94,11 @@ export default class DispensingDetail extends Component {
 	onReadPhone = async () => {
 		const { state } = this.props.location
 		const postData = {
-			id: state.data.id
+			adjustId: state.data.id
 		}
 
 		Toast.loading('正在请求', 0)
-		const res = await axios.get("/adjustAuthorize/check",qs.stringify(postData))
+		const res = await axios.get("/adjustAuthorize/check",{params:{...postData}})
 		if(res.ErrorCode === "000000") {
 			Toast.success('请求成功')
 		}

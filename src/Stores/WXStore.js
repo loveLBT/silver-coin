@@ -9,17 +9,15 @@ export default class Store {
 	constructor(homestore) {
 		this.homestore = homestore
 		this.restoreUserInfoFromStorage()
-		this.restorageWXInfoFromStorage()
-		this.readWXJSSDK()
 	}
 	@observable userInfo = {}
 
 	STORAGE_KEY_USER_INFO = 'FRONT_USER_INFO'
-	STORAGE_KEY_WX_INFO = 'FRONT_WX_INFO'
 
 	@action wechatLogin = async () => {
 		const code = GetUrlParams("code")
 		if(code){
+			const that = this
 			const params = {
 				code,
 				url:window.location.href.split('#')[0]
@@ -30,25 +28,22 @@ export default class Store {
 			if(res.ErrorCode === "100002"){
 				Toast.hide()
 				this.setUserInfoStorage(res.data.user)
-				this.setWXInfoStorage(res.data.config)
-				this.homestore.initData()
+				sessionStorage.setItem("JESSION_ID", res.data.weixinid)
+				that.homestore.getBanners()
+				if(res.data.user.userType !== "app用户") {
+					this.homestore.getPhoneAuthCount()
+				}
 			}
 		}
 	}
-	@action initWX = (data) => {
+	@action WXConfig = (config, jsApiList) => {
 		window.wx.config({
-			debug:true,
-			appId:data.appId,
-			timestamp:data.timestamp,
-			nonceStr:data.nonceStr,
-			signature:data.signature,
-			jsApiList: ["getLocation"] 
-		})
-	}
-	@action readWXJSSDK = () => {
-		const that = this
-		window.wx.ready(function() {
-			that.getWXLocation()
+			debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+			appId: config.appId, // 必填，公众号的唯一标识
+			timestamp: config.timestamp, // 必填，生成签名的时间戳
+			nonceStr: config.nonceStr, // 必填，生成签名的随机串
+			signature: config.signature,// 必填，签名
+			jsApiList: jsApiList // 必填，需要使用的JS接口列表
 		})
 	}
 	@action getWXLocation = () => {
@@ -89,18 +84,6 @@ export default class Store {
             this.homestore.initData()
         }else{
         	this.wechatLogin()
-        }
-    }
-    @action setWXInfoStorage = (data) => {
-        sessionStorage.setItem(this.STORAGE_KEY_WX_INFO, JSON.stringify(data))
-        this.initWX(data)
-    }
-
-    @action restorageWXInfoFromStorage = () => {
-        const value = sessionStorage.getItem(this.STORAGE_KEY_WX_INFO)
-        if (value) {
-            this.systemInfo = JSON.parse(value)
-            this.initWX(JSON.parse(value))
         }
     }
 }

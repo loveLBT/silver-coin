@@ -1,5 +1,6 @@
 import React,{ Component } from 'react'
 
+import constants from '../util/constants'
 import HOCHeader from '../HOC/HOCHeader'
 
 @HOCHeader({title:"帮助中心"})
@@ -10,7 +11,7 @@ export default class HelpCenter extends Component {
 				<iframe 
 					title="帮助中心"
 					style={{width:"100%",flex:1}}
-					src="/help-info.html" 
+					src={`${constants.wechatLoginApi}/help-info.html`}
 					frameBorder="0"
 					ref={ref=>this.iframe=ref}
 				/>

@@ -6,11 +6,16 @@ import constants from '../util/constants'
 //	拦截异步请求
 axios.interceptors.request.use((config)=>{
 	config.baseURL = constants.wechatLoginApi
+	config.crossDomain = true
 	config.withCredentials = true
-	config.headers={
-		'X-Requested-With' : 'XMLHttpRequest',
-		'Content-Type':'application/x-www-form-urlencoded'
-	}
+	config.headers['X-Requested-With'] = 'XMLHttpRequest'
+	config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+	config.headers['weixinid'] = sessionStorage.getItem('JESSION_ID')
+	/*config.headers={
+		'X-Requested-With': 'XMLHttpRequest',
+		'Content-Type':'application/x-www-form-urlencoded',
+		'Cookie': sessionStorage.getItem('JESSION_ID')
+	}*/
 	return config
 },(error) => {
 	return Promise.reject(error)
@@ -25,7 +30,6 @@ axios.interceptors.response.use((response)=>{
 
 	return response.data
 },(error)=>{
-	console.log(error)
 	if(error && error.response){
 		MessageError(error.response.status)
 	}else{

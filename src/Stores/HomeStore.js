@@ -20,10 +20,6 @@ export default class Store {
 		}
 		return array
 	}
-	@action initData = () => {
-		this.getBanners()
-		this.getPhoneAuthCount()
-	}
 	@action onTabChange = (selectedTab) => {
 		this.selectedTab = selectedTab
 	}

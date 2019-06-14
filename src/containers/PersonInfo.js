@@ -1,6 +1,6 @@
 import React,{ Component } from 'react'
 import { List, InputItem, Toast } from 'antd-mobile'
-import { inject } from 'mobx-react'
+import { inject, observer } from 'mobx-react'
 import { createForm } from 'rc-form'
 import axios from 'axios'
 import qs from 'qs'
@@ -10,9 +10,9 @@ import HOCHeader from '../HOC/HOCHeader'
 @createForm()
 @inject("wxstore")
 @HOCHeader({
-	title:"个人中心",
-	right:(ref) => <span onClick={() =>ref.onSubmit()} style={{color:"#fff"}}>完成</span>
+	title:"个人中心"
 })
+@observer
 export default class PersonInfo extends Component {
 	onSubmit = () => {
 		const { wxstore, form } = this.props
@@ -45,71 +45,76 @@ export default class PersonInfo extends Component {
 
 		return (
 			<div className="person-info">
-				<List>
-					<InputItem
-			            {...getFieldProps('username', {
-			              initialValue: userInfo.username || ""
-			            })}
-			            type="text"
-			            placeholder="请输入用户名"
-			        >
-			        	用户名
-			        </InputItem>
-			        <InputItem
-			            {...getFieldProps('mobileNum', {
-			            	initialValue: userInfo.mobileNum || ""
-			            })}
-			            type="phone"
-			            placeholder="请输入手机号码"
-			        >
-			          	手机号码
-			        </InputItem>
-		          	<InputItem
-			            {...getFieldProps('email', {
-			            	initialValue: userInfo.email || ""
-			            })}
-			            type="text"
-			            placeholder="请输入邮箱"
-		          	>
-		          		邮箱
-		          	</InputItem>
-		          	<InputItem
-			            {...getFieldProps('postCode', {
-			            	initialValue: userInfo.postCode || ""
-			            })}
-			            type="number"
-			            placeholder="请输入邮编"
-		          	>
-		          		邮编
-		          	</InputItem>
-		          	<InputItem
-			            {...getFieldProps('phoneNum', {
-			            	initialValue: userInfo.phoneNum || ""
-			            })}
-			            type="number"
-			            placeholder="请输入联系电话"
-		          	>
-		          		联系电话
-		          	</InputItem>
-		          	<InputItem
-			            {...getFieldProps('address', {
-			            	initialValue: userInfo.address || ""
-			            })}
-			            type="text"
-			            placeholder="请输入地址"
-		          	>
-		          		地址
-		          	</InputItem>
-		          	<InputItem
-			            {...getFieldProps('faxNo', {
-			            	initialValue: userInfo.faxNo
-			            })}
-			            type="number"
-			            placeholder="请输入传真"
-		          	>
-		          		传真
-		          	</InputItem>
-				</List>
+				{userInfo.id && 
+					<List>
+						<InputItem
+				            {...getFieldProps('username', {
+				              initialValue: userInfo.username || ""
+				            })}
+				            type="text"
+				            placeholder="请输入用户名"
+				        >
+				        	用户名
+				        </InputItem>
+				        <InputItem
+				            {...getFieldProps('mobileNum', {
+				            	initialValue: userInfo.mobileNum || ""
+				            })}
+				            type="phone"
+				            placeholder="请输入手机号码"
+				        >
+				          	手机号码
+				        </InputItem>
+			          	<InputItem
+				            {...getFieldProps('email', {
+				            	initialValue: userInfo.email || ""
+				            })}
+				            type="text"
+				            placeholder="请输入邮箱"
+			          	>
+			          		邮箱
+			          	</InputItem>
+			          	<InputItem
+				            {...getFieldProps('postCode', {
+				            	initialValue: userInfo.postCode || ""
+				            })}
+				            type="number"
+				            placeholder="请输入邮编"
+			          	>
+			          		邮编
+			          	</InputItem>
+			          	<InputItem
+				            {...getFieldProps('phoneNum', {
+				            	initialValue: userInfo.phoneNum || ""
+				            })}
+				            type="number"
+				            placeholder="请输入联系电话"
+			          	>
+			          		联系电话
+			          	</InputItem>
+			          	<InputItem
+				            {...getFieldProps('address', {
+				            	initialValue: userInfo.address || ""
+				            })}
+				            type="text"
+				            placeholder="请输入地址"
+			          	>
+			          		地址
+			          	</InputItem>
+			          	<InputItem
+				            {...getFieldProps('faxNo', {
+				            	initialValue: userInfo.faxNo || ''
+				            })}
+				            type="number"
+				            placeholder="请输入传真"
+			          	>
+			          		传真
+			          	</InputItem>
+					</List>
+				}
+				<a onClick={this.onSubmit.bind(this)} href="javascript:;" className="submit-btn">
+					完成
+				</a>
 			</div>
 		)
 	}

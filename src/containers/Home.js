@@ -67,7 +67,7 @@ export default class Home extends Component {
 							{homestore.banners.map((val,index) => (
 								<img 
 									key={index}
-									src={`https://xn--uir4ul0kqufkqaj2d966dg6h5iw.com:8087${val}`} 
+									src={`https://xn--uir4ul0kqufkqaj2d966dg6h5iw.com:8088${val}`} 
 									alt={`轮播图-${index}`}
 									style={{width:"100%",height:"150px"}}
 								/>
