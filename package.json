@@ -25,14 +25,14 @@
   },
   "devDependencies": {
     "babel-plugin-import": "^1.11.0",
-    "css-loader": "^2.1.1",
+    "css-loader": "^6.7.3",
     "less": "^3.9.0",
-    "less-loader": "^4.1.0",
+    "less-loader": "^11.1.0",
     "postcss-flexbugs-fixes": "^4.1.0",
-    "postcss-loader": "^3.0.0",
+    "postcss-loader": "^7.0.2",
     "react-app-rewire-mobx": "^1.0.9",
     "react-app-rewired": "^1.6.2",
-    "react-scripts": "^1.1.5",
-    "style-loader": "^0.23.1"
+    "react-scripts": "^5.0.1",
+    "style-loader": "^3.3.1"
   }
 }
