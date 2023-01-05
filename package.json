@@ -32,7 +32,7 @@
     "postcss-loader": "^3.0.0",
     "react-app-rewire-mobx": "^1.0.9",
     "react-app-rewired": "^1.6.2",
-    "react-scripts": "^1.1.5",
+    "react-scripts": "^5.0.1",
     "style-loader": "^0.23.1"
   }
 }
